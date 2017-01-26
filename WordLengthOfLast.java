@@ -28,7 +28,7 @@ public class WordLengthOfLast {
 		}else{
 			length = 0;
 		}
-		
+
 		return length;
 	}
 }
