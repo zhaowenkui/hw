@@ -1,0 +1,37 @@
+package string;
+
+import java.util.Scanner;
+
+/**
+ * 字符串分割
+ * @author Administrator
+ *
+ */
+public class StringSplit {
+
+	static String zero8s = new String("00000000");
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str1, str2;
+        str1 = sc.nextLine();
+        str2 = sc.nextLine();
+ 
+        fun(str1);
+        fun(str2);
+    }
+ 
+    public static void fun(String str1){
+        int len= str1.length();
+        while(len>0){
+            if(len<=8){
+                String temp = str1+zero8s.substring(0,8-str1.length());
+                System.out.println(temp);
+                break;
+            }else{
+                System.out.println(str1.substring(0,8));
+                str1= str1.substring(8);
+                len = len-8;
+            }
+        }
+    }
+}
