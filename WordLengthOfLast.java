@@ -31,4 +31,5 @@ public class WordLengthOfLast {
 
 		return length;
 	}
+	
 }
