@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+/**
+ * 数组去重---用集合方式实现
+ * @author Administrator
+ *
+ */
+public class Test {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			int M = sc.nextInt();
+			int[] arr = new int[M];
+			//用List集合实现,list是有序的，允许重复的
+			List<Integer> list = new ArrayList<Integer>();
+			for(int i = 0;i < arr.length;i ++){
+				arr[i] = sc.nextInt();
+				if(! list.contains(arr[i])){
+					list.add(arr[i]);
+				}
+			}
+			System.out.println("去除重复后的list集合" + list);
+			
+			//用HasSet或TreeSet实现
+			//TreeSet不仅可以使元素不重复，而且可以实现排序等功能的集合，
+			//它在对象元素添加到集合中时会自动按照某种比较规则将其插入到有序的对象序列中
+			TreeSet<Integer> t_set = new TreeSet<Integer>();
+			for(int i = 0;i < arr.length;i ++){
+				arr[i] = sc.nextInt();
+				t_set.add(arr[i]);
+			}
+			Iterator iterator = t_set.iterator();
+			while(iterator.hasNext()){
+				System.out.println(iterator.next());
+			}
+			
+			//用List和Set组合实现
+			List<Integer> list2 = new ArrayList<Integer>();
+			for(int i = 0;i < arr.length;i ++){
+				arr[i] = sc.nextInt();
+			}
+			for(Integer i : arr){
+				list2.add(i);
+			}
+			Set<Integer> set = new TreeSet<Integer>();
+			set.addAll(list2);
+			System.out.println(set);
+		}
+	}
+
+}
